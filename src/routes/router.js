@@ -29,4 +29,18 @@ router.post("/category",authentication, storeCategorys);
 router.patch("/category/:id",authentication, editCategorys);
 router.delete("/category/:id",authentication, deleteCategorys);
 
+//controller books
+const{
+  read: getBooks,
+  detail: detailBook,
+  create: storeBook,
+  update: editBook,
+  delete: deleteBook,
+} = require("../controller/books");
+//router books
+router.get("/books",getBooks);
+router.get("/books/:id",detailBook)
+router.post("/books",authentication,storeBook);
+router.patch("/books/:id",authentication,editBook);
+router.delete("/books/:id",authentication,deleteBook);
 module.exports = router;

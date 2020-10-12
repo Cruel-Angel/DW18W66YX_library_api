@@ -3,12 +3,12 @@ const { Users } = require("../../models");
 exports.read = async (req, res) => {
   try {
     const user = await Users.findAll({
-            attributes:{
-            exclude:["password","createdAt", "updatedAt"],
-        }
+      attributes:{
+        exclude:["password","createdAt", "updatedAt"],
+      }
     });
     res.status(200).send({
-      message: "Response Success",
+      message: "Users data has successfully loaded",
       data: { user },
     });
   } catch (err) {
@@ -32,7 +32,7 @@ exports.delete = async (req, res) => {
     });
 
     res.status(200).send({
-      message: `User with id: ${id} Data has successfully deleted`,
+      message: `User with id: ${id} has successfully deleted`,
     });
   } catch (err) {
     console.log(err);

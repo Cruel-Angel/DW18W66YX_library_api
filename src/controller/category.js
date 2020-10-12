@@ -52,7 +52,7 @@ exports.delete = async (req, res) => {
       },
     });
     res.status(200).send({
-      message: `Category with id: ${id} Data has successfully deleted`,
+      message: `Category with id: ${id} has successfully deleted`,
     });
   } catch (err) {
     console.log(err);
@@ -76,7 +76,7 @@ exports.detail = async (req, res) => {
       }
     });
     res.status(200).send({
-      message: `Category with id: ${id} Data has successfully loaded`,
+      message: `Category with id: ${id} has successfully loaded`,
       data: {
         category: detailCategory,
       },
