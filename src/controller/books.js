@@ -1,3 +1,4 @@
+const Joi = require("@hapi/joi");
 const {Books,Category,Users,BooksUserCategory} = require("../../models");
 
 exports.read = async (req,res) =>{
@@ -104,7 +105,33 @@ exports.detail = async (req,res) =>{
 
 exports.create = async (req,res) =>{
     try {
-        const bookCreated = await Books.create(req.body);
+        const {title,author,publication,pages,ISBN,aboutBook,status,userId} = req.body;
+
+        const schema = Joi.object({
+            title: Joi.string().required(),
+            author: Joi.string().required(),
+            publication: Joi.string().required(),
+            pages: Joi.number().required(),
+            ISBN: Joi.string().required(),
+            aboutBook: Joi.string().required(),
+            status: Joi.string().required(),
+            userId: Joi.number(),
+        })
+
+        const {error} = schema.validate(req.body);
+
+        if(error){
+            return res.status(400).send({
+                error:{
+                    message : error.details[0].message,
+                }
+            })
+        }
+        const bookCreated = await Books.create({
+            ...req.body,
+            thumbnail: req.files.thumbnail[0].filename,
+            file: req.files.file[0].filename,
+        });
         res.status(200).send({
             message: "New book has successfully created",
             data: { bookCreated },
@@ -125,13 +152,13 @@ exports.update = async (req,res) =>{
         const body = req.body;
         await Books.update({
             title: body.title,
+            author: body.author,
             publication: body.publication,            
             pages: body.pages,
             ISBN: body.ISBN,
             aboutBook: body.aboutBook,
             file: body.file,
-            status: body.status,
-            thumbnail: body.thumbnail,
+            status: body.status,            
         },{where:{id}})
         res.status(200).send({
             message: `Book with id: ${id} has successfully updated`,

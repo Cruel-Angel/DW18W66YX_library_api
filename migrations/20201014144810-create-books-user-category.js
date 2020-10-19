@@ -9,7 +9,6 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       bookId: {
-        allowNull: false,
         type: Sequelize.INTEGER,
         references:{
           model: "Books",
@@ -19,7 +18,6 @@ module.exports = {
         onDelete: "CASCADE",
       },
       userId: {
-        allowNull: false,
         type: Sequelize.INTEGER,
         references:{
           model: "Users",
@@ -29,7 +27,6 @@ module.exports = {
         onDelete: "CASCADE",
       },
       categoryId: {
-        allowNull: false,
         type: Sequelize.INTEGER,
         references:{
           model: "Categories",

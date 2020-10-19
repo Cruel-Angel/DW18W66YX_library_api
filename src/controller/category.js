@@ -1,8 +1,19 @@
-const { Category } = require("../../models");
+const { Category, BooksUserCategory,Books } = require("../../models");
 
 exports.read = async (req, res) => {
   try {
     const categorys = await Category.findAll({
+        include:{
+          model: Books,
+          as: "books",
+          through:{
+            model: BooksUserCategory,
+            as: "info",
+            attributes:{
+                exclude:["createdAt", "updatedAt","bookId","userId","categoryId","BookId","CategoryId"],
+            },
+          },
+        },
         attributes:{
             exclude:["createdAt", "updatedAt"],
         }
@@ -66,17 +77,31 @@ exports.delete = async (req, res) => {
 
 exports.detail = async (req, res) => {
   try {
-    const { id } = req.params;
+    const { name } = req.params;
     const detailCategory = await Category.findOne({
       where: {
-        id,
+        name,
       },
+      include:{
+          model: Books,
+          as: "books",
+          through:{
+            model: BooksUserCategory,
+            as: "info",
+            attributes:{
+                exclude:["createdAt", "updatedAt","bookId","userId","categoryId","BookId","CategoryId"],
+            },
+          },
+          attributes:{
+            exclude:["createdAt", "updatedAt"],
+          }
+        },
       attributes:{
           exclude:["createdAt", "updatedAt"],
       }
     });
     res.status(200).send({
-      message: `Category with id: ${id} has successfully loaded`,
+      message: `Category with name: ${name} has successfully loaded`,
       data: {
         category: detailCategory,
       },

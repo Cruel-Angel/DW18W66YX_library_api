@@ -11,6 +11,9 @@ module.exports = {
       title: {
         type: Sequelize.STRING
       },
+      author: {
+        type: Sequelize.STRING
+      },
       publication: {
         type: Sequelize.STRING
       },      
@@ -23,14 +26,17 @@ module.exports = {
       aboutBook: {
         type: Sequelize.TEXT
       },
-      file: {
-        type: Sequelize.STRING
-      },      
       status: {
         type: Sequelize.STRING
       },
+      file: {
+        type: Sequelize.STRING
+      },      
       thumbnail: {
         type: Sequelize.STRING
+      },
+      userId:{
+        type: Sequelize.INTEGER
       },
       createdAt: {
         allowNull: false,

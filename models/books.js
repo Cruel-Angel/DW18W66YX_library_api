@@ -28,13 +28,15 @@ module.exports = (sequelize, DataTypes) => {
   };
   Books.init({
     title: DataTypes.STRING,
+    author: DataTypes.STRING,
     publication: DataTypes.STRING,    
     pages: DataTypes.INTEGER,
     ISBN: DataTypes.STRING,
     aboutBook: DataTypes.TEXT,
-    file: DataTypes.STRING,    
     status: DataTypes.STRING,
-    thumbnail: DataTypes.STRING
+    file: DataTypes.STRING,        
+    thumbnail: DataTypes.STRING,
+    userId: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'Books',
