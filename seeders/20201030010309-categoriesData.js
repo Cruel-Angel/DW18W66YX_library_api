@@ -16,27 +16,43 @@ module.exports = {
       [
         {
           name: "Sci - fi",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           name: "Anime",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           name: "Comedy",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           name: "Adventure",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           name: "Dark - Fantasy",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           name: "Fantasy",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           name: "Thriller",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           name: "Super Power",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
       ],
       {}
