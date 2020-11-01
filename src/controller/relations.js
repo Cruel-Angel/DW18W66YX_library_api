@@ -2,11 +2,7 @@ const { booksUsersCategories } = require("../../models");
 
 exports.read = async (req, res) => {
   try {
-    const loadRelation = await booksUsersCategories.findAll({
-      attributes: {
-        exclude: ["createdAt", "updatedAt", "BookId", "UserId"],
-      },
-    });
+    const loadRelation = await booksUsersCategories.findAll();
     res.status(200).send({
       message: "RELATION succesfully loaded",
       data: { loadRelation },
