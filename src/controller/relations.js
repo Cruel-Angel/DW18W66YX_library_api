@@ -20,10 +20,11 @@ exports.read = async (req, res) => {
 exports.relation = async (req, res) => {
   try {
     const { BookId, categoryId } = req.body;
+    const CategoryId = categoryId;
     const checkRelation = await booksUsersCategories.findOne({
       where: {
         BookId,
-        categoryId,
+        CategoryId,
       },
     });
 
@@ -87,10 +88,12 @@ exports.delete = async (req, res) => {
   try {
     const { bookId, userId } = req.params;
 
+    const BookId = bookId;
+    const UserId = userId;
     const checkRelation = await booksUsersCategories.findOne({
       where: {
-        bookId,
-        userId,
+        BookId,
+        UserId,
       },
     });
 
@@ -102,8 +105,8 @@ exports.delete = async (req, res) => {
 
     await booksUsersCategories.destroy({
       where: {
-        bookId,
-        userId,
+        BookId,
+        UserId,
       },
     });
     res.status(200).send({
