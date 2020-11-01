@@ -65,6 +65,6 @@ const {
 router.get("/relations", getRelations);
 router.post("/relations", authentication, storeRelationsBU);
 router.post("/relation", authentication, storeRelationsBC);
-router.delete("/relations/:bookId/:userId", authentication, deleletRelations);
+router.delete("/relations/:BookId/:UserId", authentication, deleletRelations);
 
 module.exports = router;

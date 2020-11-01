@@ -19,8 +19,7 @@ exports.read = async (req, res) => {
 
 exports.relation = async (req, res) => {
   try {
-    const { BookId, categoryId } = req.body;
-    const CategoryId = categoryId;
+    const { BookId, CategoryId } = req.body;
     const checkRelation = await booksUsersCategories.findOne({
       where: {
         BookId,
@@ -30,7 +29,7 @@ exports.relation = async (req, res) => {
 
     if (checkRelation) {
       return res.status(400).send({
-        message: `Relation between bookId: ${BookId} and categoryId: ${categoryId} is already exist`,
+        message: `Relation between BookId: ${BookId} and CategoryId: ${CategoryId} is already exist`,
       });
     }
 
@@ -63,7 +62,7 @@ exports.create = async (req, res) => {
 
     if (checkRelation) {
       return res.status(400).send({
-        message: `Relation between bookId: ${BookId} and userId: ${UserId} is already exist`,
+        message: `Relation between BookId: ${BookId} and UserId: ${UserId} is already exist`,
       });
     }
 
@@ -86,10 +85,7 @@ exports.create = async (req, res) => {
 
 exports.delete = async (req, res) => {
   try {
-    const { bookId, userId } = req.params;
-
-    const BookId = bookId;
-    const UserId = userId;
+    const { BookId, UserId } = req.params;
     const checkRelation = await booksUsersCategories.findOne({
       where: {
         BookId,
@@ -99,7 +95,7 @@ exports.delete = async (req, res) => {
 
     if (!checkRelation) {
       return res.status(400).send({
-        message: `There is no relation between bookId: ${bookId} and userId: ${userId}`,
+        message: `There is no relation between BookId: ${BookId} and UserId: ${UserId}`,
       });
     }
 
@@ -110,7 +106,7 @@ exports.delete = async (req, res) => {
       },
     });
     res.status(200).send({
-      message: `Relation with bookId: ${bookId} and userId: ${userId} has successfully deleted`,
+      message: `Relation with BookId: ${BookId} and UserId: ${UserId} has successfully deleted`,
     });
   } catch (err) {
     console.log(err);
