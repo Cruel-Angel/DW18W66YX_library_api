@@ -16,17 +16,6 @@ exports.read = async (req, res) => {
           through: {
             model: booksUsersCategories,
             as: "info",
-            attributes: {
-              exclude: [
-                "createdAt",
-                "updatedAt",
-                "bookId",
-                "userId",
-                "categoryId",
-                "BookId",
-                "CategoryId",
-              ],
-            },
           },
           attributes: {
             exclude: ["createdAt", "updatedAt"],
@@ -38,17 +27,6 @@ exports.read = async (req, res) => {
           through: {
             model: booksUsersCategories,
             as: "info",
-            attributes: {
-              exclude: [
-                "createdAt",
-                "updatedAt",
-                "bookId",
-                "userId",
-                "categoryId",
-                "BookId",
-                "CategoryId",
-              ],
-            },
           },
           attributes: {
             exclude: ["password", "createdAt", "updatedAt"],
@@ -100,17 +78,6 @@ exports.detail = async (req, res) => {
           through: {
             model: booksUsersCategories,
             as: "info",
-            attributes: {
-              exclude: [
-                "createdAt",
-                "updatedAt",
-                "bookId",
-                "userId",
-                "categoryId",
-                "BookId",
-                "CategoryId",
-              ],
-            },
           },
           attributes: {
             exclude: ["createdAt", "updatedAt"],
@@ -122,17 +89,6 @@ exports.detail = async (req, res) => {
           through: {
             model: booksUsersCategories,
             as: "info",
-            attributes: {
-              exclude: [
-                "createdAt",
-                "updatedAt",
-                "bookId",
-                "userId",
-                "categoryId",
-                "BookId",
-                "CategoryId",
-              ],
-            },
           },
           attributes: {
             exclude: ["password", "createdAt", "updatedAt"],
@@ -185,17 +141,6 @@ exports.detailByISBN = async (req, res) => {
           through: {
             model: booksUsersCategories,
             as: "info",
-            attributes: {
-              exclude: [
-                "createdAt",
-                "updatedAt",
-                "bookId",
-                "userId",
-                "categoryId",
-                "BookId",
-                "CategoryId",
-              ],
-            },
           },
           attributes: {
             exclude: ["createdAt", "updatedAt"],
@@ -207,17 +152,6 @@ exports.detailByISBN = async (req, res) => {
           through: {
             model: booksUsersCategories,
             as: "info",
-            attributes: {
-              exclude: [
-                "createdAt",
-                "updatedAt",
-                "bookId",
-                "userId",
-                "categoryId",
-                "BookId",
-                "CategoryId",
-              ],
-            },
           },
           attributes: {
             exclude: ["password", "createdAt", "updatedAt"],
